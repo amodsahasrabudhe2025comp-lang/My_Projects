@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main(){
+    int bill,time;
+    printf("Enter price of the dish.");
+    scanf("%d", & bill);
+    printf("Enter the time required to finish the dish in minutes.");
+    scanf("%d", & time);
+    if(time>30 && time<=40){
+       bill = bill-(0.05*bill); //apply 5% discount.
+        printf("You have to pay bill %d",bill);
+    }
+    else if(time<=30){
+         bill = bill-(0.1*bill); //apply 10% discount.
+        printf("You have to pay bill %d",bill);
+    }
+    else{
+        printf("No discount is applicable.");
+    }
+    return 0;
+}
