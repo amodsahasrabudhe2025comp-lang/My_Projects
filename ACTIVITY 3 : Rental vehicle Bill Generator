@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    int time, bill = 0;
+    char vehicle;
+    printf("Vehicle used: (S for scooter, B for Bike, C for car)\n");
+    scanf(" %c", &vehicle);  
+
+    printf("Total time the rented vehicle is used in hours (1, 5, 24):\n");
+    scanf("%d", &time);
+
+    if (vehicle == 'S') {
+        if (time == 1) bill = 50;
+        else if (time == 5) bill = 200;
+        else if (time == 24) bill = 500;
+    } else if (vehicle == 'B') {
+        if (time == 1) bill = 70;
+        else if (time == 5) bill = 250;
+        else if (time == 24) bill = 600;
+    } else if (vehicle == 'C') {
+        if (time == 1) bill = 150;
+        else if (time == 5) bill = 700;
+        else if (time == 24) bill = 1500;
+    } 
+        printf("     ~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("        Rental Vehicle Receipt\n");
+    printf("        Anand Rental Vehicles\n");
+    printf("     ~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    printf("        Karvenagar, Pune\n\n\n");
+
+    printf("Rental vehicle bill\nVehicle selected:%c \nTime vehicle was rented:%d hours\nYou have to pay %d rupees.\n", vehicle,time,bill);
+
+    return 0;
+}
