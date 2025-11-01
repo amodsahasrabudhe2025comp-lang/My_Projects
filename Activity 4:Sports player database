@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+struct Player {
+    char name[50];
+    int age;
+    int rank;
+    int matches_won;
+};
+
+int main() {
+    int i, j;
+    struct Player temp;
+    struct Player players[5]; 
+
+    
+    for (i = 0; i < 5; i++) {
+        printf("\nEnter details for Player %d:\n", i + 1);
+        printf("Name: ");
+        scanf(" %[^\n]", players[i].name);
+        printf("Age: ");
+        scanf("%d", &players[i].age);
+        printf("Rank: ");
+        scanf("%d", &players[i].rank);
+        printf("Matches Won: ");
+        scanf("%d", &players[i].matches_won);
+    }
+
+   
+    for (i = 0; i < 4; i++) {
+        for (j = i + 1; j < 5; j++) {
+            if (players[i].rank > players[j].rank) {
+                temp = players[i];
+                players[i] = players[j];
+                players[j] = temp;
+            }
+        }
+    }
+
+    
+    printf("\n\n--- Badminton Tournament Player List (Sorted by Rank) ---\n");
+    for (i = 0; i < 5; i++) {
+        printf("\nPlayer %d:\n", i + 1);
+        printf("Name: %s\n", players[i].name);
+        printf("Age: %d\n", players[i].age);
+        printf("Rank: %d\n", players[i].rank);
+        printf("Matches Won: %d\n", players[i].matches_won);
+    }
+
+    return 0;
+}
