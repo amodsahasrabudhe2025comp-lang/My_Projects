@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <string.h>
+
+struct player {
+    char name[50];
+    char origin[50];
+    int age;
+    int rank;
+    int id;
+};
+
+int main() {
+    struct player p[4],temp;
+    int i, j;
+
+    printf("This is a database for players in a tournament.\n");
+
+    for(i = 0; i <=4; i++) {
+        printf("\nEnter data for player number %d:\n", i + 1);
+        printf("Player ID: ");
+        scanf("%d", &p[i].id);
+        printf("Name: ");
+        scanf("%s", p[i].name);
+        printf("Age: ");
+        scanf("%d", &p[i].age);
+        printf("Seed rank: ");
+        scanf("%d", &p[i].rank);
+        printf("Origin: ");
+        scanf("%s", p[i].origin);
+    }
+
+    for(i = 0; i <=4; i++) {
+        for(j = i + 1; j <=5; j++) {
+            if(p[i].rank > p[j].rank) {
+                temp = p[i];
+                p[i] = p[j];
+                p[j] = temp;
+            }
+        }
+    }
+
+    printf("\nPlayers sorted by seed rank:\n");
+    for(i = 0; i <=4; i++) {
+        printf("\nPlayer %d:\n", i + 1);
+        printf("ID: %d\n", p[i].id);
+        printf("Name: %s\n", p[i].name);
+        printf("Age: %d\n", p[i].age);
+        printf("Seed rank: %d\n", p[i].rank);
+        printf("Origin: %s\n", p[i].origin);
+    }
+
+    return 0;
+}
