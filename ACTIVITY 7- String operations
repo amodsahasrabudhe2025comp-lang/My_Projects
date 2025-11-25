@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<string.h>
+
+int wordcount(char sentence[100]){
+    int count=1;
+   for(int i=0;sentence[i]!= '\0';++i){
+       if(sentence[i]== ' '){
+       count++;
+       }
+   } 
+   return count;
+}
+int main(){
+    char sentence[100]="My name is Amod Sahasrabudhe. I study in MMCOE.";
+    printf("Number of words in the essay are %d",wordcount(sentence));
+   
+    
+    char name[]="Amod ";
+    char surname[]="Sahasrabudhe";
+    
+    
+     strcat(name, surname);
+
+    printf("\n%s\n", name);
+    
+     return 0;
+}
