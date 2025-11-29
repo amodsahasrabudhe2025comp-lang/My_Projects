@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+float compoundInterest(float principal, float rate, int time) {
+    if (time == 0) {
+        return principal;
+    }
+    else{
+    return compoundInterest(principal * (1 + rate / 100), rate, time - 1);
+    }
+}
+
+int main() {
+    float principal, rate, amount;
+    int time;
+
+    printf("Enter principal amount: ");
+    scanf("%f", &principal);
+
+    printf("Enter annual interest rate (in %%): ");
+    scanf("%f", &rate);
+
+    printf("Enter time (in years): ");
+    scanf("%d", &time);
+
+    amount = compoundInterest(principal, rate, time);
+
+    printf("Final amount after %d years = %f\n", time, amount);
+    printf("Compound Interest = %f\n", amount - principal);
+
+    return 0;
+}
